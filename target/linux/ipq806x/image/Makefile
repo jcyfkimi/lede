@@ -200,7 +200,7 @@ define Device/netgear_r7800
 	PAGESIZE := 2048
 	BOARD_NAME := r7800
 	SUPPORTED_DEVICES += r7800
-	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct
+	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct kmod-qca-nss-drv kmod-qca-nss-gmac
 endef
 TARGET_DEVICES += netgear_r7800
 
@@ -275,8 +275,8 @@ define Device/ruijie_rg-mtfi-m520
 	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-to $$$${BLOCKSIZE} | sysupgrade-tar rootfs=$$$$@ | append-metadata
 	IMAGE/mmcblk0p2-kernel.bin := append-kernel | pad-to $$$${KERNEL_SIZE}
 	IMAGE/mmcblk0p3-rootfs.bin := append-rootfs | pad-rootfs
-	DEVICE_PACKAGES := ath10k-firmware-qca988x-ct e2fsprogs f2fs-tools \
-	kmod-hwmon-lm75 kmod-fs-ext4 kmod-fs-f2fs kmod-rtc-pcf8563 losetup
+	DEVICE_PACKAGES := ath10k-firmware-qca988x-ct e2fsprogs f2fs-tools kmod-hwmon-lm75 \
+	kmod-fs-ext4 kmod-fs-f2fs kmod-qca-nss-drv kmod-qca-nss-gmac kmod-rtc-pcf8563 losetup
 endef
 TARGET_DEVICES += ruijie_rg-mtfi-m520
 
